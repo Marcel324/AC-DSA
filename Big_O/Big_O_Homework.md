@@ -12,7 +12,7 @@ func problemOne(arr: [Int]) {
 }
 ```
 
-problemOne(arr:) runtime: 
+problemOne(arr:) runtime: O(1)
 
 
 ```swift
@@ -25,7 +25,7 @@ func problemTwo(arr: [Int]) {
 }
 ```swift
 
-problemTwo(arr:) runtime: 
+problemTwo(arr:) runtime: O(n<sup>2</sup>)
 
 
 ```swift
@@ -36,18 +36,18 @@ func problemThree(arr: [Int]) {
 }
 ```
 
-problemThree(arr:) runtime: 
+problemThree(arr:) runtime: O(1)
 
 
 ```swift
 func problemFour(arr: [Int]) {
-    for _ in 0..<arr.count {
-        problemTwo(arr: arr)
+    for _ in 0..<arr.count { 
+        problemTwo(arr: arr) 
     }
 }
 ```
 
-problemFour(arr:) runtime: 
+problemFour(arr:) runtime: O(n<sup>3</sup>)
 
 
 ```swift
@@ -61,7 +61,7 @@ func problemFive(arr: [Int]) {
 }
 ```
 
-problemFive(arr:) runtime: 
+problemFive(arr:) runtime: O(n<sup>3</sup>)
 
 
 ```swift
@@ -74,4 +74,4 @@ func problemSix(arr: [Int]) {
 }
 ```
 
-problemSix(arr:) runtime: 
+problemSix(arr:) runtime: O(n<sup>4</sup>)
