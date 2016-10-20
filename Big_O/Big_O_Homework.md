@@ -23,7 +23,7 @@ func problemTwo(arr: [Int]) {
         }
     }
 }
-```swift
+```
 
 problemTwo(arr:) runtime: O(n<sup>2</sup>)
 
@@ -74,4 +74,8 @@ func problemSix(arr: [Int]) {
 }
 ```
 
+<<<<<<< HEAD
 problemSix(arr:) runtime: O(n<sup>4</sup>)
+=======
+problemSix(arr:) runtime: 
+>>>>>>> f11dc0a8d8d0f0e2641654899f92f6dc15831800
