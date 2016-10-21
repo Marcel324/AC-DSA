@@ -15,7 +15,10 @@ import Foundation
 //Sample output: [1,2,3,4,5,0]
 
 func problemOne(arr: [Int]) -> [Int] {
-    return []
+    var array = arr
+    let removedInt = array.removeFirst()
+    array.append(removedInt)
+    return array
 }
 
 
@@ -26,7 +29,12 @@ func problemOne(arr: [Int]) -> [Int] {
 //Sample output: [3,4,5,0,1,2]
 
 func problemTwo(arr: [Int], x: Int) -> [Int] {
-    return []
+    var array = arr
+    for _ in 1...x {
+        let removedInt = array.removeFirst()
+        array.append(removedInt)
+    }
+    return array
 }
 
 //Write a function that accepts two strings, and returns true if one string is rotation of the other, taking letter case into account.
@@ -42,10 +50,26 @@ func problemTwo(arr: [Int], x: Int) -> [Int] {
 //Sample output 3: false
 
 func problemThree(strOne: String, strTwo: String) -> Bool {
+    var firstString = strOne
+    var secondString = strTwo
+    var stringArray = firstString.characters.map { String($0) }
+    let secondStringArray = secondString.characters.map { String($0)}
+    
+    for _ in 0..<stringArray.count {
+        let removedCharacter = stringArray.removeFirst()
+        stringArray.append(removedCharacter)
+        
+        if stringArray == secondStringArray {
+            return true
+        } else {
+            continue
+        }
+    }
     return false
+    
 }
-
-
+//
+//
 //Problem Four
 //Given a square matrix of size 3 x 3 , calculate the absolute value of the difference between the sums of its diagonals.
 
@@ -63,7 +87,25 @@ func problemThree(strOne: String, strTwo: String) -> Bool {
 //|(1 + 5 + 9) - (3 + 5 + 11)| = |15 - 19| = |-4| = 4
 
 func problemFour(arr: [[Int]]) -> Int {
-    return 0
+    var arraySumOne = 0
+    var arraySumTwo = 0
+    
+    for i in 0..<arr.count {
+        for j in 0..<arr.count {
+            if i == j {
+                arraySumOne += arr[i][j]
+            }
+            if i + j == arr.count - 1 {
+                arraySumTwo += arr[i][j]
+            }
+        }
+    }
+    let difference = arraySumOne - arraySumTwo
+    if difference < 0 {
+        return difference * -1
+    } else {
+        return difference
+    }
 }
 
 
@@ -84,6 +126,25 @@ func problemFour(arr: [[Int]]) -> Int {
 //|(4 + 1 + 3 + 3) - (5 + 9 + 1 + 9)| = |11 - 24| = |-13| = 13
 
 func problemFive(arr: [[Int]]) -> Int {
-    return 0
+    var arraySumOne = 0
+    var arraySumTwo = 0
+    
+    for i in 0..<arr.count {
+        for j in 0..<arr.count {
+            if i == j {
+                arraySumOne += arr[i][j]
+            }
+            if i + j == arr.count - 1 {
+                arraySumTwo += arr[i][j]
+            }
+        }
+    }
+    let difference = arraySumOne - arraySumTwo
+    if difference < 0 {
+        return difference * -1
+    } else {
+        return difference
+    }
+
 }
 
