@@ -58,6 +58,7 @@ class LinkedList<T: Comparable> {
     //Problem One
     //See Exercise One (https://github.com/C4Q/AC-DSA/blob/master/Linked%20Lists/LinkedListsDayTwo.md)
     func equals(otherList: LinkedList ) -> Bool {
+        
         return true
     }
     
