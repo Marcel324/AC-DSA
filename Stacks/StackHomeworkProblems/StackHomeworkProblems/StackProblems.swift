@@ -13,7 +13,20 @@ import Foundation
 //Find the largest integer in a Stack of Ints
 
 func largest(stack: Stack<Int>) -> Int {
-    return 0
+    var largest = 0
+    let tempStack = Stack<Int>()
+    while stack.isEmpty() == false {
+        let top = stack.pop()!
+        if top > largest {
+            largest = top
+            }
+        tempStack.push(element: top)
+        
+    }
+    while tempStack.isEmpty() == false {
+        stack.push(element: tempStack.pop()!)
+    }
+    return largest
 }
 
 
@@ -21,7 +34,17 @@ func largest(stack: Stack<Int>) -> Int {
 //Find the sum of a Stack of Ints
 
 func sum(stack: Stack<Int>) -> Int {
-    return 0
+    var sum = 0
+    let tempStack = Stack<Int>()
+    while stack.isEmpty() == false {
+        let top = stack.pop()
+        sum += top!
+        tempStack.push(element: top!)
+    }
+    while tempStack.isEmpty() == false {
+        stack.push(element: tempStack.pop()!)
+    }
+    return sum
 }
 
 //Problem Three:
@@ -44,7 +67,17 @@ func sum(stack: Stack<Int>) -> Int {
 */
 
 func reverse<T>(stack: Stack<T>) -> Stack<T> {
-    return Stack<T>()
+    let reversedStack = Stack<T>()
+    let replacementStack = Stack<T>()
+    while stack.isEmpty() == false {
+        let top = stack.pop()!
+        reversedStack.push(element: top)
+        replacementStack.push(element: top)
+    }
+    while replacementStack.isEmpty() == false {
+        stack.push(element: replacementStack.pop()!)
+    }
+    return reversedStack
 }
 
 
@@ -52,15 +85,46 @@ func reverse<T>(stack: Stack<T>) -> Stack<T> {
 //Determine if two stacks are equal
 
 func equalStacks<T: Equatable>(stackOne: Stack<T>, stackTwo: Stack<T>) -> Bool {
-    return false
+    if stackOne.isEmpty() && stackTwo.isEmpty() {
+        return true
+    }
+   
+    let replaceStackOne = Stack<T>()
+    let replaceStackTwo = Stack<T>()
+    
+    while stackOne.isEmpty() == false && stackTwo.isEmpty() == false {
+        let topOne = stackOne.pop()!
+        let topTwo = stackTwo.pop()!
+        if topOne == topTwo {
+            replaceStackOne.push(element: topOne)
+            replaceStackTwo.push(element: topTwo)
+        }
+        else { return true }
+    }
+    while replaceStackOne.isEmpty() == false && replaceStackTwo.isEmpty() == false {
+        stackOne.push(element: replaceStackOne.pop()!)
+        stackTwo.push(element: replaceStackTwo.pop()!)
+    }
+    return true
 }
+
 
 
 //Problem Five:
 //Write a function that pushes a new element to the bottom of a Stack
 
 func pushBottom<T>(stack: Stack<T>, newElement: T) -> Stack<T> {
-    return Stack<T>()
+    let newStack = Stack<T>()
+    while stack.isEmpty() == false {
+        let top = stack.pop()!
+        newStack.push(element: top)
+    }
+    stack.push(element: newElement)
+    while newStack.isEmpty() == false {
+        stack.push(element: newStack.pop()!)
+    }
+    
+    return stack
 }
 
 //Problem Six:
