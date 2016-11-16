@@ -25,6 +25,20 @@ func sum(q: Queue<Int>) -> Int? {
         }
     while !replacementStack.isEmpty() {
         q.enQueue(newElement: replacementStack.pop()!)
+    guard !q.isEmpty() else {
+        return nil
+    }
+    let tempQ = Queue<Int>()
+    var sum = 0
+    while !(q.isEmpty()) {
+        let temp = q.deQueue()!
+        sum += temp
+        q.enQueue(newElement: temp)
+    }
+    //Rebuild
+    while !(tempQ.isEmpty()) {
+        let temp = tempQ.deQueue()!
+        q.enQueue(newElement: temp)
     }
     return sum
 }
